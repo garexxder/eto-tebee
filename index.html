@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will you be my Allie?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #fdd8f3;
+      font-family: 'Tagesschrift', serif;
+      text-align: center;
+      padding: 30px 15px;
+      color: #a25ddc;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .btn {
+      padding: 18px 32px;
+      margin: 12px;
+      font-size: 22px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: 'Tagesschrift', serif;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .yes {
+      background-color: #c9ddf4;
+      color: #000;
+    }
+
+    .no {
+      background-color: #d292e0;
+      color: white;
+    }
+
+    #reaction {
+      display: none;
+      margin-top: 25px;
+    }
+
+    video {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 700px;
+      border-radius: 10px;
+    }
+
+    #reaction p {
+      font-size: 36px;
+      margin: 20px 0;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      .btn {
+        font-size: 24px;
+      }
+
+      #reaction p {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="question">will you be my Allie?</h1>
+
+  <div id="topGif">
+    <img src="https://media1.tenor.com/m/JTWkLQyjzWYAAAAd/peach-peach-cat.gif" width="300" />
+  </div>
+
+  <div id="choices">
+    <button class="btn yes" onclick="showVideo()">YES!!</button>
+    <button class="btn no" id="noBtn" onmouseover="moveButton()">NO</button>
+  </div>
+
+  <div id="reaction">
+    <p>YEAAAHHH!! 🥹</p>
+    <video id="leraaaa" controls autoplay muted>
+      <source src="leraaaa.mp4" type="video/mp4" />
+    </video>
+    <br /><br />
+    <img src="https://media.tenor.com/fGYjY61poS8AAAAj/marceline-bubblegum.gif" width="230" />
+    <img src="https://media1.tenor.com/m/pZjd9MY-_7oAAAAC/bubbline-adventure-time.gif" width="230" />
+  </div>
+
+  <script>
+    function showVideo() {
+      document.getElementById("choices").style.display = "none";
+      document.getElementById("question").style.display = "none";
+      document.getElementById("topGif").style.display = "none";
+      document.getElementById("reaction").style.display = "block";
+    }
+
+    function moveButton() {
+      const btn = document.getElementById("noBtn");
+      const maxX = window.innerWidth - btn.offsetWidth - 10;
+      const maxY = window.innerHeight - btn.offsetHeight - 10;
+      const x = Math.floor(Math.random() * maxX);
+      const y = Math.floor(Math.random() * maxY);
+      btn.style.position = "absolute";
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
+    }
+  </script>
+</body>
+</html>
